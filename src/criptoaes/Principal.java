@@ -15,19 +15,23 @@ public class Principal {
         
         long startTime = System.currentTimeMillis();
         System.out.println("Início da Decriptação: " + Calendar.getInstance().getTime());
-        CriptoAES.gerarChave();
-//        Thread a = new Thread(CriptoAES.gerarChave());
-//        Thread b = new Thread(CriptoAES.gerarChave());
-//        a.start();
-//        b.start();    
-//       
-//        a.join();
-//        b.join();
+//        CriptoAES.gerarChave();
+        Thread a = new Thread(CriptoAES.gerarChave());
+        Thread b = new Thread(CriptoAES.gerarChave2());
+        Thread c = new Thread(CriptoAES.gerarChave3());
+        a.start();
+        b.start();    
+        c.start();
+        
+        a.join();
+        b.join();
+        c.join();
         
         long estimatedTime = System.currentTimeMillis() - startTime;
         System.out.println("Senha Final: " + CriptoAES.Char_Final);
         System.out.println("Texto Decriptado: " + CriptoAES.textoDecriptado);
         System.out.println("Nro de tentativas: " + CriptoAES.nro_tentativas);
+        System.out.println("Nro de tentativas: " + 3);
         System.out.println("Minutos Totais: " + TimeUnit.MILLISECONDS.toMinutes(estimatedTime));    
         System.out.println("Final da decriptação: " + Calendar.getInstance().getTime());        
     }
