@@ -28,7 +28,8 @@ public class Principal {
         c.join();
         
         long estimatedTime = System.currentTimeMillis() - startTime;
-        System.out.println("Senha Final: " + CriptoAES.Char_Final);
+        String str = new String(CriptoAES.Char_Final);
+        System.out.println("Senha Final: " + str);
         System.out.println("Texto Decriptado: " + CriptoAES.textoDecriptado);
         System.out.println("Nro de tentativas: " + CriptoAES.nro_tentativas);
         System.out.println("Nro de tentativas: " + 3);
